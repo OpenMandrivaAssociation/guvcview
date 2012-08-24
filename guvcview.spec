@@ -17,7 +17,7 @@ BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libv4l2)
 BuildRequires:  pkgconfig(libudev)
-
+BuildRequires:  intltool
 
 %description
 A simple GTK interface for capturing and viewing video from devices

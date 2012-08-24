@@ -15,7 +15,7 @@ BuildRequires:  pkgconfig(portaudio-2.0)
 BuildRequires:  ffmpeg-devel
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  desktop-file-utils
-BuildRequires:  pkgconfig(libv4l2
+BuildRequires:  pkgconfig(libv4l2)
 BuildRequires:  pkgconfig(libudev)
 
 

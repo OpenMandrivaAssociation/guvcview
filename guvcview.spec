@@ -7,7 +7,7 @@ License:        GPLv3+
 URL:            http://guvcview.sourceforge.net/
 Source0:        http://sourceforge.net/projects/guvcview/files/source/%{name}-src-%{version}.tar.gz
 
-BuildRequires:  pkgconfig(gtk+-2.0)
+BuildRequires:  pkgconfig(gdk-3.0)
 BuildRequires:  gettext
 BuildRequires:  pkgconfig(sdl)
 BuildRequires:  pkgconfig(libpng)

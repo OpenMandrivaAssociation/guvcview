@@ -1,5 +1,8 @@
+%define debug_package   %{nil}
+%define distsuffix mrb
+
 Name:           guvcview
-Version:        1.6.1
+Version:        1.7.1
 Release:        1
 Summary:        GTK+ UVC Viewer and Capturer
 Group:          Video
@@ -38,8 +41,7 @@ export CPPFLAGS
 
 
 %install
-
-make install DESTDIR=%{buildroot}
+%makeinstall_std
 
 desktop-file-install \
         --add-category='X-AudioVideoCapture' \
@@ -52,7 +54,6 @@ mv %{buildroot}%{_datadir}/doc/%{name} _doc
 rm _doc/INSTALL
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
 %doc _doc/*
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*

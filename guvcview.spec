@@ -1,5 +1,5 @@
-%define debug_package   %{nil}
-%define distsuffix mrb
+#define debug_package   %{nil}
+#define distsuffix mrb
 
 Name:           guvcview
 Version:        1.7.1

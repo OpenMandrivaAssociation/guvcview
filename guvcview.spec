@@ -3,7 +3,7 @@
 
 Name:           guvcview
 Version:        1.7.1
-Release:        1
+Release:        4
 Summary:        GTK+ UVC Viewer and Capturer
 Group:          Video
 License:        GPLv3+

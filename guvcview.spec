@@ -115,7 +115,7 @@ Requires:       %{libgvrendername} = %{version}-%{release}
 %{summary}.
 
 %prep
-%setup -q -n %{name}-src-%{version}-%{date}
+%setup -q -n %{name}-src-%{version}
 %apply_patches
 
 %build

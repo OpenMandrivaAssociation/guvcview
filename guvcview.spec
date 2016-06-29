@@ -19,7 +19,7 @@
 %define		date	20160425
 
 Name:           guvcview
-Version:        2.0.3
+Version:        2.0.4
 Release:        1
 
 Summary:        GTK+ UVC Viewer and Capturer

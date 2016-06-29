@@ -16,7 +16,6 @@
 %define         gvrendername          gviewrender
 %define         libgvrendername       %mklibname %{gvrendername} %{major}.%{minor}
 %define         develgvrendername     %mklibname %{gvrendername} -d
-%define		date	20160425
 
 Name:           guvcview
 Version:        2.0.4
@@ -27,7 +26,7 @@ Group:          Video
 License:        GPLv3+
 
 URL:            http://guvcview.sourceforge.net/
-Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}-%{date}.tar.xz
+Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}.tar.xz
 Patch0:		ffmpeg3.patch
 
 BuildRequires:	pkgconfig(gtk+-3.0)

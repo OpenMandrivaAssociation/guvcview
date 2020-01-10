@@ -116,7 +116,7 @@ Requires:       %{libgvrendername} = %{version}-%{release}
 
 %prep
 %setup -q -n %{name}-src-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 autoreconf -fi

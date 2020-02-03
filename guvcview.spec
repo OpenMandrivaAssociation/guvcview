@@ -18,7 +18,7 @@
 %define         develgvrendername     %mklibname %{gvrendername} -d
 
 Name:           guvcview
-Version:        2.0.4
+Version:        2.0.6
 Release:        1
 
 Summary:        GTK+ UVC Viewer and Capturer
@@ -27,7 +27,6 @@ License:        GPLv3+
 
 URL:            http://guvcview.sourceforge.net/
 Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}.tar.gz
-Patch0:		ffmpeg3.patch
 
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:  gettext-devel
@@ -123,10 +122,10 @@ autoreconf -fi
 %configure --enable-pulse --disable-debian-menu \
                --disable-silent-rules \
                --disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 desktop-file-install \
         --add-category='X-AudioVideoCapture' \

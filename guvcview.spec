@@ -41,6 +41,8 @@ BuildRequires:  pkgconfig(libdvbv5)
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  intltool
 BuildRequires:  pkgconfig(libpulse)
+BuildRequires:  pkgconfig(libv4l2)
+BuildRequires:  pkgconfig(libusb-1.0)
 
 %description
 A simple GTK interface for capturing and viewing video from devices

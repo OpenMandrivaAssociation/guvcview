@@ -18,7 +18,7 @@
 %define         develgvrendername     %mklibname %{gvrendername} -d
 
 Name:           guvcview
-Version:        2.0.6
+Version:        2.0.7
 Release:        1
 
 Summary:        GTK+ UVC Viewer and Capturer
@@ -26,7 +26,7 @@ Group:          Video
 License:        GPLv3+
 
 URL:            http://guvcview.sourceforge.net/
-Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}.tar.gz
+Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}-2.tar.bz2
 
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:  gettext-devel
@@ -116,8 +116,7 @@ Requires:       %{libgvrendername} = %{version}-%{release}
 %{summary}.
 
 %prep
-%setup -q -n %{name}-src-%{version}
-%autopatch -p1
+%autosetup -p1 -c
 
 %build
 autoreconf -fi

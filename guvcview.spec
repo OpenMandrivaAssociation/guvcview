@@ -119,7 +119,7 @@ Requires:       %{libgvrendername} = %{version}-%{release}
 %autosetup -p1 -c
 
 %build
-autoreconf -fi
+#autoreconf -fi
 %configure --enable-pulse --disable-debian-menu \
                --disable-silent-rules \
                --disable-static

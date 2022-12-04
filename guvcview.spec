@@ -40,6 +40,7 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(libdvbv5)
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  intltool
+BuildRequires:  autoconf-archive
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libv4l2)
 BuildRequires:  pkgconfig(libusb-1.0)
@@ -120,7 +121,8 @@ Requires:       %{libgvrendername} = %{version}-%{release}
 
 %build
 #autoreconf -fi
-%configure --enable-pulse --disable-debian-menu \
+%configure --enable-pulse \
+               --disable-debian-menu \
                --disable-silent-rules \
                --disable-static
 %make_build

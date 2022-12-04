@@ -26,7 +26,7 @@ Group:          Video
 License:        GPLv3+
 
 URL:            http://guvcview.sourceforge.net/
-Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}-2.tar.bz2
+Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  gettext-devel

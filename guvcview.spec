@@ -25,8 +25,8 @@ Summary:        GTK+ UVC Viewer and Capturer
 Group:          Video
 License:        GPLv3+
 
-URL:            http://guvcview.sourceforge.net/
-Source0:        http://sourceforge.net/projects/%{name}/files/source/%{name}-src-%{version}.tar.bz2
+URL:            https://guvcview.sourceforge.net/
+Source0:        https://downloads.sourceforge.net/guvcview/%{name}-src-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  gettext-devel
@@ -117,7 +117,7 @@ Requires:       %{libgvrendername} = %{version}-%{release}
 %{summary}.
 
 %prep
-%autosetup -p1 -c
+%autosetup -p1 -n %{name}-src-%{version}
 
 %build
 #autoreconf -fi

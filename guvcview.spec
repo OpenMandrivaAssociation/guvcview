@@ -1,17 +1,17 @@
 %define	major	2
 %define	minor	0
 
-%define	gvaname			gviewaudio
+%define	gvanam	e		gviewaudio
 %define	libgvaname		%mklibname %{gvaname}
-%define	develgvaname	%mklibname %{gvaname} -d
-%define	oldlibgvaname	%mklibname %{gvaname} %{major}.%{minor}
+%define	develgvaname		%mklibname %{gvaname} -d
+%define	oldlibgvaname		%mklibname %{gvaname} %{major}.%{minor}
 
 %define	gvename			gviewencoder
 %define	libgvename		%mklibname %{gvename}
-%define	develgvename	%mklibname %{gvename} -d
-%define	oldlibgvename	%mklibname %{gvename} %{major}.%{minor}
+%define	develgvename		%mklibname %{gvename} -d
+%define	oldlibgvename		%mklibname %{gvename} %{major}.%{minor}
 
-%define	gvv4l2name			gviewv4l2core
+%define	gvv4l2name		gviewv4l2core
 %define	libgvv4l2name		%mklibname %{gvv4l2name}
 %define	develgvv4l2name		%mklibname %{gvv4l2name} -d
 %define	oldlibgvv4l2name	%mklibname %{gvv4l2name} %{major}.%{minor}
@@ -22,8 +22,8 @@
 %define	oldlibgvrendername	%mklibname %{gvrendername} %{major}.%{minor}
 
 Name:		guvcview
-Version:	2.0.8
-Release:	2
+Version:	2.1.0
+Release:	1
 Summary:	GTK+ UVC Viewer and Capturer
 Group:		Video
 License:	GPLv3+
@@ -202,7 +202,6 @@ desktop-file-install \
 
 %find_lang %{name}
 %find_lang gview_v4l2core
-
 
 #find %{buildroot}%{_libdir} -name *.la -delete
 

@@ -201,7 +201,7 @@ Requires:	%{libgvrendername} = %{version}-%{release}
 
 #find %{buildroot}%{_libdir} -name *.la -delete
 
-mv %{buildroot}%{_datadir}/doc/%{name} _doc
-rm _doc/INSTALL
+#mv %{buildroot}%{_datadir}/doc/%{name} _doc
+#rm _doc/INSTALL
 #rm %{buildroot}%{_datadir}/doc/%{name}/INSTALL
 

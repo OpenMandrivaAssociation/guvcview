@@ -22,8 +22,8 @@
 %define	oldlibgvrendername	%mklibname %{gvrendername} %{major}.%{minor}
 
 Name:		guvcview
-Version:	2.1.0
-Release:	2
+Version:	2.2.1
+Release:	1
 Summary:	GTK+ UVC Viewer and Capturer
 Group:		Video
 License:	GPLv3+

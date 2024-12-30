@@ -30,6 +30,7 @@ License:	GPLv3+
 URL:		https://guvcview.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/guvcview/%{name}-src-%{version}.tar.bz2
 
+BuildRequires:	cmake
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(sdl2)
@@ -186,14 +187,12 @@ Requires:	%{libgvrendername} = %{version}-%{release}
 %autosetup -p1 -n %{name}-src-%{version}
 
 %build
-%configure \
-	--enable-pulse \
-	--disable-debian-menu \
-	--disable-silent-rules
+%cmake \
+	-DUSE_SDL2=ON
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 desktop-file-install \
 	--add-category='X-AudioVideoCapture' \

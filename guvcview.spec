@@ -56,12 +56,12 @@ supported by the Linux UVC driver, although it should also work with
 any v4l2 compatible device.
 
 %files -f %{name}.lang
-%doc _doc/*
+#doc _doc/*
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-%{_datadir}/pixmaps/%{name}
+#{_datadir}/pixmaps/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/metainfo/%{name}.appdata.xml
+#{_datadir}/metainfo/%{name}.appdata.xml
 
 #--------------------------------------------------------------------
 

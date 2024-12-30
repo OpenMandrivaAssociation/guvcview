@@ -76,7 +76,7 @@ Obsoletes:	%{oldlibgvaname}
 %{summary}.
 
 %files -n %{libgvaname}
-%{_libdir}/libgviewaudio-*.so.%{major}*
+#{_libdir}/libgviewaudio-*.so.%{major}*
 
 #--------------------------------------------------------------------
 

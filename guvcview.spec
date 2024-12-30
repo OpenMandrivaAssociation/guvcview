@@ -89,9 +89,9 @@ Requires:	%{libgvaname} = %{version}-%{release}
 %{summary}.
  
 %files -n %{develgvaname}
-%{_includedir}/guvcview-2/libgviewaudio/*.h
+#{_includedir}/guvcview-2/libgviewaudio/*.h
 %{_libdir}/libgviewaudio.so
-%{_libdir}/pkgconfig/libgviewaudio.pc
+#{_libdir}/pkgconfig/libgviewaudio.pc
 
 #--------------------------------------------------------------------
 

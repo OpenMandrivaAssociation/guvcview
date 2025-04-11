@@ -25,7 +25,7 @@
 
 Name:		guvcview
 Version:	2.2.1
-Release:	1
+Release:	2
 Summary:	GTK+ UVC Viewer and Capturer
 Group:		Video
 License:	GPLv3+
@@ -50,6 +50,10 @@ BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	pkgconfig(libv4l2)
 BuildRequires:	pkgconfig(libusb-1.0)
 
+BuildSystem:	cmake
+BuildOption:	-DUSE_SDL2:BOOL=ON
+BuildOption:	-DINSTALL_DEVKIT:BOOL=ON
+
 %description
 A simple GTK interface for capturing and viewing video from devices
 supported by the Linux UVC driver, although it should also work with
@@ -59,9 +63,9 @@ any v4l2 compatible device.
 #doc _doc/*
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
-#{_datadir}/pixmaps/%{name}
+%{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
-#{_datadir}/metainfo/%{name}.appdata.xml
+%{_datadir}/appdata/%{name}.appdata.xml
 
 #--------------------------------------------------------------------
 
@@ -70,13 +74,13 @@ Summary:	Shared library for %{name} audio support
 Group:	 	System/Libraries
 Provides:	lib%{gvaname} = %{version}-%{release}
 # Intentionally unversioned, because libname should not contain version number
-Obsoletes:	%{oldlibgvaname}
+%rename  %{oldlibgvaname}
 
 %description -n %{libgvaname}
 %{summary}.
 
 %files -n %{libgvaname}
-%{_libdir}/libgviewaudio-*.so.%{major}*
+%{_libdir}/libgviewaudio*.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -89,9 +93,9 @@ Requires:	%{libgvaname} = %{version}-%{release}
 %{summary}.
  
 %files -n %{develgvaname}
-%{_includedir}/guvcview-2/libgviewaudio/*.h
+%{_includedir}/*.h
 %{_libdir}/libgviewaudio.so
-%{_libdir}/pkgconfig/libgviewaudio.pc
+%{_datadir}/pkgconfig/libgviewaudio.pc
 
 #--------------------------------------------------------------------
 
@@ -100,13 +104,13 @@ Summary:	Shared library for %{name} encoder support
 Group:	 	System/Libraries
 Provides:	lib%{gvename} = %{version}-%{release}
 # Intentionally unversioned, because libname should not contain version number
-Obsoletes:	%{oldlibgvename}
+%rename %{oldlibgvename}
 
 %description -n %{libgvename}
 %{summary}.
 
 %files -n %{libgvename}
-%{_libdir}/libgviewencoder-*.so.%{major}*
+%{_libdir}/libgviewencoder*.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -119,9 +123,9 @@ Requires:	%{libgvename} = %{version}-%{release}
 %{summary}.
 
 %files -n %{develgvename}
-%{_includedir}/guvcview-2/libgviewencoder/*.h
+%{_includedir}/*.h
 %{_libdir}/libgviewencoder.so
-%{_libdir}/pkgconfig/libgviewencoder.pc
+%{_datadir}/pkgconfig/libgviewencoder.pc
 
 #--------------------------------------------------------------------
 
@@ -130,13 +134,13 @@ Summary:	Shared library for %{name} video support
 Group:	 	System/Libraries
 Provides:	lib%{gvv4l2name} = %{version}-%{release}
 # Intentionally unversioned, because libname should not contain version number
-Obsoletes:	%{oldlibgvv4l2name}
+%rename  %{oldlibgvv4l2name}
 
 %description -n %{libgvv4l2name}
 %{summary}.
 
 %files -n %{libgvv4l2name} -f gview_v4l2core.lang
-%{_libdir}/libgviewv4l2core-*.so.%{major}*
+%{_libdir}/libgviewv4l2core*.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -149,9 +153,9 @@ Requires:	%{libgvv4l2name} = %{version}-%{release}
 %{summary}.
 
 %files -n %{develgvv4l2name}
-%{_includedir}/guvcview-2/libgviewv4l2core/*.h
+%{_includedir}/*.h
 %{_libdir}/libgviewv4l2core.so
-%{_libdir}/pkgconfig/libgviewv4l2core.pc
+%{_datadir}/pkgconfig/libgviewv4l2core.pc
 
 #--------------------------------------------------------------------
 
@@ -160,13 +164,13 @@ Summary:	Shared library for %{name} rendering support
 Group:	 	System/Libraries
 Provides:	lib%{gvrendername} = %{version}-%{release}
 # Intentionally unversioned, because libname should not contain version number
-Obsoletes:	%{oldlibgvrendername}
+%rename %{oldlibgvrendername}
 
 %description -n %{libgvrendername}
 %{summary}.
 
 %files -n %{libgvrendername}
-%{_libdir}/libgviewrender-*.so.%{major}*
+%{_libdir}/libgviewrender*.so.%{major}*
 
 #--------------------------------------------------------------------
 
@@ -179,22 +183,17 @@ Requires:	%{libgvrendername} = %{version}-%{release}
 %{summary}.
 
 %files -n %{develgvrendername}
-%{_includedir}/guvcview-2/libgviewrender/*.h
+%{_includedir}/*.h
 %{_libdir}/libgviewrender.so
-%{_libdir}/pkgconfig/libgviewrender.pc
+%{_datadir}/pkgconfig/libgviewrender.pc
 
 #--------------------------------------------------------------------
 
 %prep
 %autosetup -p1 -n %{name}-src-%{version}
 
-%build
-%cmake \
-	-DUSE_SDL2=ON
-%make_build
-
 %install
-%make_install -C build
+%ninja_install -C  _OMV_rpm_build
 
 %find_lang %{name}
 %find_lang gview_v4l2core

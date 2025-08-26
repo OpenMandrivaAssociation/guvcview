@@ -25,7 +25,7 @@
 
 Name:		guvcview
 Version:	2.2.1
-Release:	2
+Release:	3
 Summary:	GTK+ UVC Viewer and Capturer
 Group:		Video
 License:	GPLv3+

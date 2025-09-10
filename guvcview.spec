@@ -54,6 +54,9 @@ BuildSystem:	cmake
 BuildOption:	-DUSE_SDL2:BOOL=ON
 BuildOption:	-DINSTALL_DEVKIT:BOOL=ON
 
+%patchlist
+guvcview-2.1.1-ffmpeg-8.0.patch
+
 %description
 A simple GTK interface for capturing and viewing video from devices
 supported by the Linux UVC driver, although it should also work with

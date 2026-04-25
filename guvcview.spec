@@ -3,7 +3,7 @@
 %define	major	2
 %define	minor	0
 
-%define	gvanam	e		gviewaudio
+%define	gvaname		gviewaudio
 %define	libgvaname		%mklibname %{gvaname}
 %define	develgvaname		%mklibname %{gvaname} -d
 %define	oldlibgvaname		%mklibname %{gvaname} %{major}.%{minor}
@@ -24,8 +24,8 @@
 %define	oldlibgvrendername	%mklibname %{gvrendername} %{major}.%{minor}
 
 Name:		guvcview
-Version:	2.2.1
-Release:	4
+Version:	2.2.2
+Release:	1
 Summary:	GTK+ UVC Viewer and Capturer
 Group:		Video
 License:	GPLv3+
@@ -38,7 +38,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(portaudio-2.0)
-BuildRequires: 	pkgconfig(libavcodec)
+BuildRequires:	pkgconfig(libavcodec)
 BuildRequires:	pkgconfig(gsl)
 BuildRequires:	pkgconfig(libpulse)
 BuildRequires:	desktop-file-utils
@@ -53,9 +53,6 @@ BuildRequires:	pkgconfig(libusb-1.0)
 BuildSystem:	cmake
 BuildOption:	-DUSE_SDL2:BOOL=ON
 BuildOption:	-DINSTALL_DEVKIT:BOOL=ON
-
-%patchlist
-guvcview-2.1.1-ffmpeg-8.0.patch
 
 %description
 A simple GTK interface for capturing and viewing video from devices

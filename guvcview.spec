@@ -25,10 +25,10 @@
 
 Name:		guvcview
 Version:	2.2.2
-Release:	1
+Release:	2
 Summary:	GTK+ UVC Viewer and Capturer
 Group:		Video
-License:	GPLv3+
+License:	GPL-2.0-or-later
 URL:		https://guvcview.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/guvcview/%{name}-src-%{version}.tar.bz2
 
@@ -75,6 +75,9 @@ Group:	 	System/Libraries
 Provides:	lib%{gvaname} = %{version}-%{release}
 # Intentionally unversioned, because libname should not contain version number
 %rename  %{oldlibgvaname}
+# Obsoletes is to handle upgrade path for prior broken macro which was
+# generating malformed package names:
+Obsoletes:	%{_lib}%%{gvaname} < %{EVRD}
 
 %description -n %{libgvaname}
 %{summary}.
@@ -192,15 +195,12 @@ Requires:	%{libgvrendername} = %{version}-%{release}
 %prep
 %autosetup -p1 -n %{name}-src-%{version}
 
-%install
-%ninja_install -C  _OMV_rpm_build
-
+%install -a
 %find_lang %{name}
 %find_lang gview_v4l2core
 
-#find %{buildroot}%{_libdir} -name *.la -delete
-
-#mv %{buildroot}%{_datadir}/doc/%{name} _doc
-#rm _doc/INSTALL
-#rm %{buildroot}%{_datadir}/doc/%{name}/INSTALL
+%dnl #find %{buildroot}%{_libdir} -name *.la -delete
+%dnl #mv %{buildroot}%{_datadir}/doc/%{name} _doc
+%dnl #rm _doc/INSTALL
+%dnl #rm %{buildroot}%{_datadir}/doc/%{name}/INSTALL
 
